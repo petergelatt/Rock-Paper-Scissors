@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="myscripts.js"></script>
+    <link rel="stylesheet" href="style.css"> 
     <title>Document</title>
 </head>
 <body>
-    <button onclick="startGame()">Start Game</button>
+    <button id = "startGameButton" onclick="startGame()">Start Game</button>
+    <button id = "rockButton" style = "display:none;">Rock</button>
+    <button id = "paperButton" style = "display:none;">Paper</button>
+    <button id = "scissorsButton" style = "display:none;">Scissors</button>
     <div id="result"></div>
+    <div id="liveScorePlayer">0</div>
+    <div id="liveScoreComputer">0</div>
+    <div id="winner">Who will win?</div>
+    <script src="myjavascript.js"></script>
 </body>
 </html>
+

@@ -1,18 +1,39 @@
-//Get computer choice function - randomly returns either rock, paper,
-// or scissors 
-//function startGame() {
- //   let playerSelection = prompt("Choose your weapon!");
-  //  if (
-   //   playerSelection.toLowerCase() === "rock" ||
-  //    playerSelection.toLowerCase() === "paper" ||
-  //    playerSelection.toLowerCase() === "scissors"
-  //  )
- //     document.getElementById("result").innerHTML = playRound(playerSelection);
-  //  else alert("Spelling is hard, I know...");
- // } 
- const playerSelection = "Rock" //using const for now until I make the page live.
- let scoreComputer = 0
- let scorePlayer = 0
+
+let scoreComputer = 0
+let scorePlayer = 0
+
+let startGameButton = document.getElementById("startGameButton");
+let rockButton = document.getElementById("rockButton");
+let paperButton = document.getElementById("paperButton");
+let scissorsButton = document.getElementById("scissorsButton");
+
+startGameButton.addEventListener("click", function() {
+    rockButton.style.display = "block";
+    paperButton.style.display = "block";
+    scissorsButton.style.display = "block";
+});
+
+let playerSelection = "";
+rockButton.addEventListener("click", function() {
+    let playerSelection = "Rock";
+    playRound(playerSelection);
+});
+
+paperButton.addEventListener("click", function() {
+    let playerSelection = "Paper";
+    playRound(playerSelection);
+
+});
+
+scissorsButton.addEventListener("click", function() {
+    let playerSelection = "Scissors";
+    playRound(playerSelection);
+}); 
+
+function startGame() {  
+    document.getElementById("result").innerHTML = "Please choose one of the buttons: rock, paper, or scissors.";
+}
+
  function getComputerChoice() {
      let choice = Math.random()
          if (choice < 1/3) {
@@ -29,32 +50,28 @@
      function playRound(playerSelection) {
          const computerSelection = getComputerChoice();
       if (computerSelection === playerSelection) {
-        return "It's a draw!";
+        document.getElementById("result").innerHTML = "It's a draw!";
       }    else if (
          (computerSelection === "Rock" && playerSelection === "Scissors") ||
          (computerSelection === "Paper" && playerSelection === "Rock") ||
          (computerSelection === "Scissors" && playerSelection === "Paper")
       )   {
-          scoreComputer = scoreComputer + 1;
-          return `You lose! ${computerSelection} beats ${playerSelection}`;
+          scoreComputer++;
+          document.getElementById("result").innerHTML = `You lose! ${computerSelection} beats ${playerSelection}`;
+          document.getElementById("liveScoreComputer").innerHTML = scoreComputer
       }    else {
-          scorePlayer = scorePlayer + 1;
-          return `You win! ${playerSelection} beats ${computerSelection}`;
+          scorePlayer++;
+          document.getElementById("result").innerHTML = `You win! ${playerSelection} beats ${computerSelection}`;
+          document.getElementById("liveScorePlayer").innerHTML = scorePlayer
      }
+     game();
    }
- 
- function game(){      
- while (scoreComputer < 3 && scorePlayer < 3) {
-     const computerSelection = getComputerChoice();
-     const result = playRound(playerSelection) 
- }
-     if (scoreComputer === 3){
-         console.log( "You won the Game, I knew you could do it!");    
+ function game(){   
+    if (scoreComputer === 5) {
+        document.getElementById("winner").innerHTML = "Wow, you're not very good at this...";
      }
-     else {
-         console.log("You lost the game... bested by less than 100 lines of code, smh.")
-     }
-   }
- 
- 
- game();
+    else if (scorePlayer === 5) {
+        document.getElementById("winner").innerHTML = "Congradulations, you beat a computer in a game of chance :).";
+    }
+    return
+   };

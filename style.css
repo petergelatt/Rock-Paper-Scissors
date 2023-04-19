@@ -1,0 +1,27 @@
+
+#startGameButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #008000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+#rockButton, #paperButton, #scissorsButton {
+    display: none;
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px; 
+    background-color: #e0e0e0; 
+    border: none; 
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #000; 
+}
